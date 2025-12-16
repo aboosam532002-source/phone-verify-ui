@@ -2,16 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Phone Verify</title>
+  <title>Phone Verification</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="box">
     <h2>Phone Verification</h2>
-    <input type="tel" id="phone" placeholder="+9705XXXXXXXX" />
-    <button onclick="sendOTP()">Send OTP</button>
+
+    <input
+      type="tel"
+      id="phone"
+      placeholder="+9725XXXXXXXX"
+    />
+
+    <button onclick="sendCode()">إرسال الكود</button>
+
     <p id="result"></p>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
