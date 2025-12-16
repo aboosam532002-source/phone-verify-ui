@@ -5,15 +5,26 @@ async function sendOTP() {
   result.innerText = "Sending...";
 
   try {
-    const res = await fetch("https://phone-verify-api-eight.vercel.app/api/send-code", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ phone })
-    });
+    const res = await fetch(
+      "https://phone-verify-api-eight.vercel.app/api/send-code",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ phone })
+      }
+    );
 
     const data = await res.json();
-    result.innerText = data.success ? "OTP Sent" : (data.error || "Error");
-  } catch (e) {
-    result.innerText = "Server error";
+
+    if (data.success) {
+      result.innerText = "OTP Sent ✅";
+    } else {
+      result.innerText = data.error || "Error ❌";
+    }
+  } catch (err) {
+    console.error(err);
+    result.innerText = "Server error ❌";
   }
 }
