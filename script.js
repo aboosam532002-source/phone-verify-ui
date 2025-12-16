@@ -3,7 +3,7 @@ async function sendOTP() {
   const result = document.getElementById("result");
   result.innerText = "Sending...";
   try {
-    const res = await fetch("https://phone-verify-api-eight.vercel.app/api/send-otp", {
+    fetch("https://phone-verify-api-eight.vercel.app/api/send-code", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ phone })
